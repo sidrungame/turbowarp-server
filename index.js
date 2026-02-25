@@ -1,21 +1,20 @@
 const express = require("express");
 const app = express();
-
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// Test de connexion
+// 🔍 TEST CONNEXION (TurboWarp appelle ça)
 app.get("/ping", (req, res) => {
-  res.send("OK");
+  res.status(200).send("OK");
 });
 
-// Réception d’une liste
+// 📤 RÉCEPTION DE LISTE
 app.post("/endpoint", (req, res) => {
-  console.log("📩 Liste reçue :", req.body);
-  res.send("Liste reçue !");
+  console.log("📩 LISTE REÇUE :", req.body);
+  res.status(200).send("OK");
 });
 
 app.listen(PORT, () => {
-  console.log("Serveur lancé sur le port", PORT);
+  console.log("✅ Serveur prêt sur le port", PORT);
 });
